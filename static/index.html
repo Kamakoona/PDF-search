@@ -25,43 +25,34 @@
       <div class="brand">
         <span class="brand-glyph" aria-hidden="true"></span>
         <div>
-          <p class="brand-kicker">PDF Keyword Search</p>
+          <p class="brand-kicker">Local Folder PDF Search</p>
           <h1 class="brand-title">PDF 키워드 검색</h1>
         </div>
       </div>
-      <span id="mode-badge" class="mode-badge" hidden></span>
     </header>
 
     <main class="layout">
       <section class="intro">
-        <p class="lead" id="lead-text">
-          PDF 폴더를 지정하고 키워드를 입력하면, 내용이 일치하는 파일과 구문을 보여 줍니다.
-          결과를 클릭하면 해당 페이지가 열립니다.
+        <p class="lead">
+          내 컴퓨터의 PDF 폴더를 선택한 뒤 키워드를 입력하면,
+          하위 폴더까지 내용을 검색해 일치하는 파일과 구문을 보여 줍니다.
+          결과는 클릭하면 해당 페이지가 열립니다. 파일은 서버로 업로드되지 않습니다.
         </p>
 
         <form id="search-form" class="panel" autocomplete="off">
-          <div id="local-folder-block">
-            <label class="field">
-              <span class="label">PDF 폴더 경로</span>
+          <div class="field">
+            <span class="label">PDF 폴더</span>
+            <div class="upload-row">
               <input
-                id="folder"
-                name="folder"
+                id="folder-display"
                 type="text"
-                placeholder="예: C:\Users\Documents\법령PDF"
+                readonly
+                placeholder="선택된 폴더가 여기에 표시됩니다"
               />
-            </label>
-          </div>
-
-          <div id="cloud-upload-block" hidden>
-            <div class="field">
-              <span class="label">PDF 업로드</span>
-              <div class="upload-row">
-                <input id="file-input" type="file" accept=".pdf,application/pdf" multiple />
-                <button type="button" id="upload-btn" class="secondary-btn">업로드</button>
-              </div>
-              <p class="hint" id="upload-hint">클라우드에서는 파일을 업로드한 뒤 검색합니다.</p>
+              <button type="button" id="pick-folder-btn" class="secondary-btn">폴더 선택</button>
             </div>
-            <div id="library" class="library" hidden></div>
+            <input id="folder-fallback" type="file" webkitdirectory multiple hidden />
+            <p class="hint" id="folder-hint">탐색기에서 폴더를 고르면 그 안의 PDF(하위 폴더 포함)를 검색합니다.</p>
           </div>
 
           <label class="field">
@@ -81,11 +72,7 @@
             </div>
           </label>
 
-          <div class="options" id="options">
-            <label class="check" id="recursive-wrap">
-              <input type="checkbox" id="recursive" checked />
-              하위 폴더 포함
-            </label>
+          <div class="options">
             <label class="check">
               <input type="checkbox" id="case-sensitive" />
               대소문자 구분
@@ -100,7 +87,9 @@
     </main>
 
     <footer class="foot">
-      <p>텍스트가 포함된 PDF만 검색됩니다. 스캔(이미지) PDF는 인식되지 않을 수 있습니다.</p>
+      <p>
+        선택한 폴더의 PDF는 브라우저에서만 읽습니다. 텍스트 PDF만 검색되며, 스캔(이미지) PDF는 제외될 수 있습니다.
+      </p>
     </footer>
 
     <script src="/static/app.js" type="module"></script>

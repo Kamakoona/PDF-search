@@ -32,15 +32,21 @@
   align-items: center;
 }
 
-.upload-row input[type="file"] {
+.upload-row input[type="file"],
+.upload-row input[type="text"] {
   width: 100%;
-  border: 1px dashed var(--line);
+  border: 1px solid var(--line);
   border-radius: 12px;
   padding: 0.7rem 0.85rem;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.9);
   font: inherit;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--ink);
+}
+
+.upload-row input[type="text"][readonly] {
+  cursor: default;
+  color: var(--muted);
 }
 
 .secondary-btn {
