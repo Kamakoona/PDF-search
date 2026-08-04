@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDF 키워드 검색</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <link rel="stylesheet" href="/static/cloud.css" />
+  </head>
+  <body>
+    <div class="atmosphere" aria-hidden="true"></div>
+
+    <header class="top">
+      <div class="brand">
+        <span class="brand-glyph" aria-hidden="true"></span>
+        <div>
+          <p class="brand-kicker">PDF Keyword Search</p>
+          <h1 class="brand-title">PDF 키워드 검색</h1>
+        </div>
+      </div>
+      <span id="mode-badge" class="mode-badge" hidden></span>
+    </header>
+
+    <main class="layout">
+      <section class="intro">
+        <p class="lead" id="lead-text">
+          PDF 폴더를 지정하고 키워드를 입력하면, 내용이 일치하는 파일과 구문을 보여 줍니다.
+          결과를 클릭하면 해당 페이지가 열립니다.
+        </p>
+
+        <form id="search-form" class="panel" autocomplete="off">
+          <div id="local-folder-block">
+            <label class="field">
+              <span class="label">PDF 폴더 경로</span>
+              <input
+                id="folder"
+                name="folder"
+                type="text"
+                placeholder="예: C:\Users\Documents\법령PDF"
+              />
+            </label>
+          </div>
+
+          <div id="cloud-upload-block" hidden>
+            <div class="field">
+              <span class="label">PDF 업로드</span>
+              <div class="upload-row">
+                <input id="file-input" type="file" accept=".pdf,application/pdf" multiple />
+                <button type="button" id="upload-btn" class="secondary-btn">업로드</button>
+              </div>
+              <p class="hint" id="upload-hint">클라우드에서는 파일을 업로드한 뒤 검색합니다.</p>
+            </div>
+            <div id="library" class="library" hidden></div>
+          </div>
+
+          <label class="field">
+            <span class="label">검색 키워드</span>
+            <div class="keyword-row">
+              <input
+                id="keyword"
+                name="keyword"
+                type="search"
+                placeholder="예: 개인정보, 근로시간, 허가"
+                maxlength="200"
+                required
+              />
+              <button type="submit" id="search-btn">검색</button>
+              <button type="button" id="stop-btn" class="stop-btn" disabled>중지</button>
+              <button type="button" id="restart-btn" class="restart-btn" disabled>다시</button>
+            </div>
+          </label>
+
+          <div class="options" id="options">
+            <label class="check" id="recursive-wrap">
+              <input type="checkbox" id="recursive" checked />
+              하위 폴더 포함
+            </label>
+            <label class="check">
+              <input type="checkbox" id="case-sensitive" />
+              대소문자 구분
+            </label>
+          </div>
+        </form>
+      </section>
+
+      <section id="status" class="status" hidden></section>
+      <section id="summary" class="summary" hidden></section>
+      <section id="results" class="results" aria-live="polite"></section>
+    </main>
+
+    <footer class="foot">
+      <p>텍스트가 포함된 PDF만 검색됩니다. 스캔(이미지) PDF는 인식되지 않을 수 있습니다.</p>
+    </footer>
+
+    <script src="/static/app.js" type="module"></script>
+  </body>
+</html>
