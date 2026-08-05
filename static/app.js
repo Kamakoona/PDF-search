@@ -9,6 +9,7 @@ const folderHint = document.getElementById("folder-hint");
 const pickFolderBtn = document.getElementById("pick-folder-btn");
 const folderFallback = document.getElementById("folder-fallback");
 const keywordInput = document.getElementById("keyword");
+const currentTimeEl = document.getElementById("current-time");
 const caseInput = document.getElementById("case-sensitive");
 const searchBtn = document.getElementById("search-btn");
 const stopBtn = document.getElementById("stop-btn");
@@ -16,6 +17,21 @@ const restartBtn = document.getElementById("restart-btn");
 const statusEl = document.getElementById("status");
 const summaryEl = document.getElementById("summary");
 const resultsEl = document.getElementById("results");
+
+const timeFormatter = new Intl.DateTimeFormat("ko-KR", {
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: false,
+});
+
+function updateCurrentTime() {
+  const now = new Date();
+  currentTimeEl.textContent = timeFormatter.format(now);
+  currentTimeEl.dateTime = now.toISOString();
+}
+
+updateCurrentTime();
+setInterval(updateCurrentTime, 30_000);
 
 const CONTEXT_CHARS = 120;
 const MAX_SNIPPETS = 40;
