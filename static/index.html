@@ -29,7 +29,10 @@
           <h1 class="brand-title">PDF 키워드 검색</h1>
         </div>
       </div>
-      <p class="greeting">안녕하세요, 반갑습니다 👋</p>
+      <div class="header-meta">
+        <time id="current-time" class="current-time" aria-live="polite">--:--</time>
+        <p class="greeting">안녕하세요, 반갑습니다 👋</p>
+      </div>
     </header>
 
     <main class="layout">
@@ -67,7 +70,6 @@
                 maxlength="200"
                 required
               />
-              <time id="current-time" class="current-time" aria-live="polite">--:--</time>
               <button type="submit" id="search-btn">검색</button>
               <button type="button" id="stop-btn" class="stop-btn" disabled>중지</button>
               <button type="button" id="restart-btn" class="restart-btn" disabled>다시</button>

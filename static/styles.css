@@ -78,6 +78,13 @@ body {
   animation: rise 0.6s ease both;
 }
 
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
 .greeting {
   margin: 0;
   color: var(--muted);
@@ -170,19 +177,16 @@ body {
 
 .keyword-row {
   display: grid;
-  grid-template-columns: 1fr auto auto auto auto;
+  grid-template-columns: 1fr auto auto auto;
   gap: 0.55rem;
   align-items: center;
 }
 
 .current-time {
-  min-width: 4rem;
-  padding: 0.85rem 0.35rem;
   font-variant-numeric: tabular-nums;
   font-weight: 600;
   font-size: 0.95rem;
   color: var(--muted);
-  text-align: center;
   white-space: nowrap;
   user-select: none;
 }
@@ -460,11 +464,5 @@ body {
 
   .keyword-row input {
     grid-column: 1 / -1;
-  }
-
-  .keyword-row .current-time {
-    grid-column: 1 / -1;
-    padding: 0.2rem 0;
-    text-align: left;
   }
 }
