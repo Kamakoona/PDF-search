@@ -97,6 +97,22 @@ body {
   letter-spacing: -0.02em;
 }
 
+.greeting {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.6rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(196, 92, 38, 0.12);
+  border: 1px solid rgba(196, 92, 38, 0.3);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: 0;
+  color: var(--accent-deep);
+}
+
 .layout {
   max-width: 980px;
   margin: 0 auto;
