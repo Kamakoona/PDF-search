@@ -18,11 +18,6 @@ async def index() -> FileResponse:
     return FileResponse(STATIC_DIR / "index.html")
 
 
-@app.get("/view")
-async def view_page() -> FileResponse:
-    return FileResponse(STATIC_DIR / "view.html")
-
-
 @app.get("/api/health")
 async def health() -> dict:
     return {"ok": True, "mode": "local-folder"}
