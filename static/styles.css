@@ -64,6 +64,11 @@ body {
   max-width: 980px;
   margin: 0 auto;
   padding: 1.75rem 1.25rem 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
 }
 
 .brand {
@@ -71,6 +76,14 @@ body {
   align-items: center;
   gap: 0.95rem;
   animation: rise 0.6s ease both;
+}
+
+.greeting {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  white-space: nowrap;
+  animation: rise 0.6s ease 0.1s both;
 }
 
 .brand-glyph {
