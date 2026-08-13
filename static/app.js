@@ -9,6 +9,7 @@ const folderHint = document.getElementById("folder-hint");
 const pickFolderBtn = document.getElementById("pick-folder-btn");
 const folderFallback = document.getElementById("folder-fallback");
 const keywordInput = document.getElementById("keyword");
+const currentDateEl = document.getElementById("current-date");
 const currentTimeEl = document.getElementById("current-time");
 const caseInput = document.getElementById("case-sensitive");
 const searchBtn = document.getElementById("search-btn");
@@ -18,6 +19,13 @@ const statusEl = document.getElementById("status");
 const summaryEl = document.getElementById("summary");
 const resultsEl = document.getElementById("results");
 
+const dateFormatter = new Intl.DateTimeFormat("ko-KR", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  weekday: "short",
+});
+
 const timeFormatter = new Intl.DateTimeFormat("ko-KR", {
   hour: "2-digit",
   minute: "2-digit",
@@ -26,6 +34,8 @@ const timeFormatter = new Intl.DateTimeFormat("ko-KR", {
 
 function updateCurrentTime() {
   const now = new Date();
+  currentDateEl.textContent = dateFormatter.format(now);
+  currentDateEl.dateTime = now.toISOString();
   currentTimeEl.textContent = timeFormatter.format(now);
   currentTimeEl.dateTime = now.toISOString();
 }
