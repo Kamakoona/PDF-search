@@ -182,6 +182,7 @@ body {
   align-items: center;
 }
 
+.current-date,
 .current-time {
   font-variant-numeric: tabular-nums;
   font-weight: 600;
